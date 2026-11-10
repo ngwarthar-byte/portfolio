@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ngwar Tar (NT) — Digital Marketing &amp; Branding Strategist</title>
+  
+  <!-- Fonts: Playfair Display (Editorial Serif) & Plus Jakarta Sans (Clean Grotesque) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"Space Grotesk"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              accent: '#ccff00', // Electric lemon / lime green
+              accentHover: '#b5e600',
+              accentDark: '#0a0a0a',
+              dark: '#080808',
+              cardDark: '#121212',
+              cardDarkSubtle: '#181818',
+              borderDark: '#242424',
+              parchment: '#0d0d0d',
+              cardLight: '#141414',
+              borderLight: '#262626',
+              sand: '#161616'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #080808;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #222222;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ccff00;
+    }
+    /* Toast Notification styles */
+    #toast-notification {
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+  </style>
+</head>
+<body class="bg-brand-dark text-neutral-300 font-sans selection:bg-brand-accent selection:text-black">
+
+  <!-- Reading Progress Bar -->
+  <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-brand-accent z-50 transition-all duration-75" style="width: 0%;"></div>
+
+  <!-- Interactive Global Feedback Toast -->
+  <div id="toast-notification" class="fixed bottom-6 right-6 z-50 pointer-events-none opacity-0 translate-y-4 flex items-center gap-3 bg-brand-cardDark text-white px-5 py-3 rounded-lg border border-brand-accent/50 shadow-2xl">
+    <i class="fa-solid fa-circle-check text-brand-accent"></i>
+    <span id="toast-text" class="text-sm font-medium">Copied to clipboard</span>
+  </div>
+
+  <!-- NAVIGATION BAR -->
+  <header class="sticky top-0 z-40 bg-brand-dark/90 backdrop-blur-md border-b border-brand-borderDark transition-colors">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="#hero" class="group flex items-center gap-3">
+        <span class="w-10 h-10 rounded-full bg-brand-accent flex items-center justify-center font-mono font-bold text-black tracking-wider text-sm shadow-md group-hover:scale-105 transition-transform">
+          NT
+        </span>
+        <div class="flex flex-col">
+          <span class="font-serif font-bold text-lg tracking-tight text-white leading-none">
+            NGWAR TAR
+          </span>
+          <span class="text-xs uppercase font-mono tracking-widest text-neutral-400 mt-1">
+            Branding &amp; Digital Strategist
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav class="hidden lg:flex items-center gap-8 text-xs font-mono tracking-widest uppercase">
+        <a href="#about" class="text-neutral-400 hover:text-brand-accent transition-colors">02 About</a>
+        <a href="#expertise" class="text-neutral-400 hover:text-brand-accent transition-colors">03 Capabilities</a>
+        <a href="#experience" class="text-neutral-400 hover:text-brand-accent transition-colors">04 Career &amp; Cases</a>
+        <a href="#teaching" class="text-neutral-400 hover:text-brand-accent transition-colors">05 Teaching</a>
+        <a href="#connect" class="text-neutral-400 hover:text-brand-accent transition-colors">06 Connect</a>
+      </nav>
+
+      <!-- Utility & CTA -->
+      <div class="flex items-center gap-4">
+        <a href="#connect" class="hidden sm:inline-flex items-center gap-2 bg-brand-accent hover:bg-brand-accentHover text-black font-semibold text-xs font-mono uppercase tracking-wider py-2.5 px-5 rounded-full transition-all">
+          <span>Let's Talk</span>
+          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-toggle" aria-label="Open navigation menu" class="lg:hidden text-xl text-neutral-200 p-2">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobile-menu" class="hidden lg:hidden border-b border-brand-borderDark bg-brand-dark px-6 py-5 flex flex-col gap-4 text-xs font-mono uppercase tracking-wider">
+      <a href="#about" class="mobile-nav-link text-neutral-300 hover:text-brand-accent py-1">02 About</a>
+      <a href="#expertise" class="mobile-nav-link text-neutral-300 hover:text-brand-accent py-1">03 Capabilities</a>
+      <a href="#experience" class="mobile-nav-link text-neutral-300 hover:text-brand-accent py-1">04 Career &amp; Cases</a>
+      <a href="#teaching" class="mobile-nav-link text-neutral-300 hover:text-brand-accent py-1">05 Teaching</a>
+      <a href="#connect" class="mobile-nav-link text-neutral-300 hover:text-brand-accent py-1">06 Connect</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- 01 — HERO / INTRO -->
+    <section id="hero" class="relative pt-16 pb-24 md:pt-28 md:pb-32 overflow-hidden border-b border-brand-borderDark">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
+          
+          <div class="lg:col-span-8 flex flex-col justify-center">
+            <div class="inline-flex items-center gap-2 mb-6">
+              <span class="w-2.5 h-2.5 rounded-full bg-brand-accent animate-pulse shadow-[0_0_10px_#ccff00]"></span>
+              <span class="text-xs font-mono uppercase tracking-widest text-neutral-400">
+                Operating across Yangon, Bangkok &amp; Southeast Asia
+              </span>
+            </div>
+
+            <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-[1.05] mb-6">
+              NGWAR TAR <span class="text-brand-accent font-sans text-3xl sm:text-4xl lg:text-5xl font-light align-super tracking-normal">(NT)</span>
+            </h1>
+
+            <p class="font-mono text-base md:text-lg uppercase tracking-wider text-brand-accent font-semibold mb-6">
+              Digital Marketing &amp; Branding Strategist
+            </p>
+
+            <div class="inline-block py-1 px-3 bg-brand-cardDark border border-brand-accent/40 rounded text-xs font-mono text-brand-accent mb-8 w-fit tracking-wide">
+              Strategy. Creativity. Performance. Perspective.
+            </div>
+
+            <!-- Complete Uncompromised Written Bio Introduction -->
+            <div class="text-lg md:text-xl text-neutral-300 leading-relaxed max-w-3xl space-y-5 font-normal">
+              <p>
+                I am a digital marketing and branding professional with <strong class="text-white">9+ years of experience</strong> building brands, developing marketing strategies, and delivering impactful campaigns across Southeast Asia.
+              </p>
+              <p class="text-base md:text-lg text-neutral-400">
+                My experience spans performance marketing, digital strategy, brand development, international marketing, media planning and business partnerships. I bring together analytical thinking, creative storytelling and practical industry knowledge to turn complex marketing challenges into meaningful business outcomes.
+              </p>
+            </div>
+
+            <div class="mt-10 flex flex-wrap gap-4 items-center">
+              <a href="#experience" class="inline-flex items-center justify-center gap-3 bg-brand-accent hover:bg-brand-accentHover text-black px-7 py-4 rounded-full font-mono text-xs uppercase tracking-widest font-bold transition-all shadow-lg hover:shadow-brand-accent/30">
+                <span>Explore My Experience</span>
+                <i class="fa-solid fa-arrow-down text-xs"></i>
+              </a>
+
+              <a href="#connect" class="inline-flex items-center justify-center gap-3 border border-brand-borderDark hover:border-brand-accent bg-brand-cardDark text-white px-7 py-4 rounded-full font-mono text-xs uppercase tracking-widest font-semibold transition-all">
+                <span>Connect With Me</span>
+                <i class="fa-regular fa-paper-plane text-xs text-brand-accent"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Hero Sidebar Stat Card & Visual Anchor -->
+          <div class="lg:col-span-4 flex flex-col gap-6">
+            <div class="bg-brand-cardDark border border-brand-borderDark rounded-2xl p-7 shadow-sm">
+              <div class="text-xs font-mono uppercase tracking-widest text-neutral-400 mb-4 pb-3 border-b border-brand-borderDark flex justify-between items-center">
+                <span>Core Credentials</span>
+                <i class="fa-solid fa-id-badge text-brand-accent"></i>
+              </div>
+              
+              <ul class="space-y-4 text-sm">
+                <li class="flex items-start justify-between gap-4">
+                  <span class="text-neutral-400">Experience</span>
+                  <span class="font-bold text-white text-right">9+ Years in SEA</span>
+                </li>
+                <li class="flex items-start justify-between gap-4">
+                  <span class="text-neutral-400">Postgraduate</span>
+                  <span class="font-semibold text-white text-right">Master of Arts (MBM), Chulalongkorn</span>
+                </li>
+                <li class="flex items-start justify-between gap-4">
+                  <span class="text-neutral-400">Global Executive</span>
+                  <span class="font-semibold text-white text-right">Cambridge Judge Business School (UK)</span>
+                </li>
+                <li class="flex items-start justify-between gap-4">
+                  <span class="text-neutral-400">Base</span>
+                  <span class="font-semibold text-white text-right">Yangon, Myanmar</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Quick Impact Metrics Callout -->
+            <div class="grid grid-cols-2 gap-4">
+              <div class="p-5 rounded-2xl bg-brand-cardDark border border-brand-accent/40 text-center">
+                <div class="font-mono text-3xl font-extrabold text-brand-accent">100×</div>
+                <div class="text-xs font-mono uppercase text-neutral-400 mt-1">Peak Campaign ROAS</div>
+              </div>
+              <div class="p-5 rounded-2xl bg-brand-cardDark border border-brand-borderDark text-center">
+                <div class="font-mono text-3xl font-extrabold text-white">$1M+</div>
+                <div class="text-xs font-mono uppercase text-neutral-400 mt-1">Managed Media Budgets</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 — EXTENSIVE ABOUT ME & ACADEMIC DOSSIER -->
+    <section id="about" class="py-24 border-b border-brand-borderDark">
+      <div class="max-w-7xl mx-auto px-6">
+        
+        <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-brand-accent mb-3">
+          <span>02</span>
+          <span class="w-8 h-px bg-brand-accent"></span>
+          <span>About Me &amp; Philosophy</span>
+        </div>
+
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-12 max-w-4xl leading-snug">
+          "Marketing is more than communication. It's about understanding people, creating value and driving business growth."
+        </h2>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          
+          <!-- Written Narrative Column: Authentic, full-length voice -->
+          <div class="lg:col-span-7 space-y-6 text-neutral-300 text-lg leading-relaxed">
+            <p>
+              With a career spanning agencies, international businesses and multiple industries, I have developed a broad perspective on how brands connect with consumers and compete in an evolving digital landscape.
+            </p>
+            <p>
+              I started my career in the advertising industry in Myanmar, developing a strong foundation in digital campaigns, creative communication and media strategy. Over the years, I expanded my experience into brand management, international marketing, eCommerce, performance optimization and strategic partnerships.
+            </p>
+            <p>
+              My professional journey also took me to Thailand, where I completed my Master of Arts in Branding &amp; Marketing at Chulalongkorn University and participated in an exchange programme at Cambridge Judge Business School.
+            </p>
+            <p>
+              Today, I combine industry experience, strategic thinking and a passion for knowledge sharing. I believe effective marketing comes from understanding both the bigger business picture and the details of execution.
+            </p>
+
+            <!-- Signature block -->
+            <div class="pt-6 border-t border-brand-borderDark flex items-center justify-between">
+              <div>
+                <p class="font-serif italic font-bold text-white text-xl">Ngwar Tar (NT)</p>
+                <p class="text-xs font-mono uppercase tracking-wider text-neutral-400 mt-0.5">Strategist · Marketer · Educator</p>
+              </div>
+              <div class="text-right">
+                <span class="inline-block px-3 py-1 rounded-full text-xs font-mono border border-brand-accent/40 text-brand-accent bg-brand-accent/10">
+                  9+ Years in Southeast Asia
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Academic & Education Dossier Column -->
+          <div class="lg:col-span-5 flex flex-col gap-6">
+            <div class="bg-brand-cardDark border border-brand-borderDark rounded-2xl p-7">
+              <h3 class="font-mono text-xs uppercase tracking-widest text-brand-accent font-bold mb-6 flex items-center gap-2">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span>Academic Credentials</span>
+              </h3>
+
+              <div class="space-y-6">
+                <!-- Master Degree -->
+                <div class="relative pl-6 border-l-2 border-brand-accent">
+                  <div class="text-xs font-mono text-neutral-400 mb-1">2022 – 2024 · Thailand</div>
+                  <h4 class="font-serif font-bold text-lg text-white">Master of Arts in Branding &amp; Marketing (MBM)</h4>
+                  <p class="text-sm font-semibold text-neutral-300">Chulalongkorn University</p>
+                  <div class="inline-block mt-2 px-2.5 py-0.5 rounded text-xs font-mono bg-brand-accent/20 text-brand-accent border border-brand-accent/40 font-bold">
+                    GPA: 3.62
+                  </div>
+                </div>
+
+                <!-- Cambridge Exchange -->
+                <div class="relative pl-6 border-l-2 border-brand-borderDark">
+                  <div class="text-xs font-mono text-neutral-400 mb-1">July 2023 · Cambridge, UK</div>
+                  <h4 class="font-serif font-bold text-lg text-white">Global Branding — Exchange Programme</h4>
+                  <p class="text-sm text-neutral-300">Cambridge Judge Business School (CJBS)</p>
+                </div>
+
+                <!-- Bachelor 1 -->
+                <div class="relative pl-6 border-l-2 border-brand-borderDark">
+                  <div class="text-xs font-mono text-neutral-400 mb-1">2012 – 2016 · Myanmar</div>
+                  <h4 class="font-serif font-bold text-lg text-white">Bachelor of Arts in Business Studies</h4>
+                  <p class="text-sm text-neutral-300">Liberal Arts Program, MIT</p>
+                </div>
+
+                <!-- Bachelor 2 -->
+                <div class="relative pl-6 border-l-2 border-brand-borderDark">
+                  <div class="text-xs font-mono text-neutral-400 mb-1">2012 – 2017 · Myanmar</div>
+                  <h4 class="font-serif font-bold text-lg text-white">Bachelor of Arts in English Studies</h4>
+                  <p class="text-sm text-neutral-300">Yangon University of Distance Education</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Value Proposition Statement -->
+            <div class="p-6 bg-brand-cardDarkSubtle border border-brand-borderDark rounded-2xl">
+              <p class="font-serif italic text-sm text-neutral-300">
+                "Connecting British and Thai academic strategic frameworks with practical, hands-on frontier execution across Myanmar and Thailand."
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 — AREAS OF EXPERTISE & TOOLS -->
+    <section id="expertise" class="py-24 border-b border-brand-borderDark bg-brand-dark">
+      <div class="max-w-7xl mx-auto px-6">
+        
+        <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-brand-accent mb-3">
+          <span>03</span>
+          <span class="w-8 h-px bg-brand-accent"></span>
+          <span>Areas of Expertise</span>
+        </div>
+
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div>
+            <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">
+              Integrated Capabilities
+            </h2>
+            <p class="text-neutral-400 text-lg mt-3 max-w-2xl">
+              Connecting strategy, creativity and technology to create meaningful marketing outcomes.
+            </p>
+          </div>
+          <div class="font-mono text-xs uppercase tracking-wider text-neutral-400">
+            6 Core Domains · Full-Funnel Scope
+          </div>
+        </div>
+
+        <!-- 6 Capability Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- 01. Performance -->
+          <div class="bg-brand-cardDark border border-brand-borderDark p-8 rounded-2xl flex flex-col justify-between hover:border-brand-accent/70 transition-all group">
+            <div>
+              <div class="flex justify-between items-center mb-6">
+                <span class="font-mono text-xs text-brand-accent font-bold tracking-widest">01</span>
+                <i class="fa-solid fa-chart-line text-neutral-500 group-hover:text-brand-accent transition-colors"></i>
+              </div>
+              <h3 class="font-serif text-xl font-bold text-white mb-3">
+                Digital &amp; Performance Marketing
+              </h3>
+              <p class="text-neutral-400 text-sm leading-relaxed">
+                Full-funnel campaign planning, paid media strategy, audience targeting, lead generation, retargeting, conversion optimization and performance measurement.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-brand-borderDark text-xs font-mono text-neutral-400 flex flex-wrap gap-2">
+              <span class="bg-brand-dark px-2 py-0.5 rounded border border-brand-borderDark">Conversion Rate</span>
+              <span class="bg-brand-dark px-2 py-0.5 rounded border border-brand-borderDark">Paid Media</span>
+              <span class="bg-brand-dark px-2 py-0.5 rounded border border-brand-borderDark text-brand-accent">ROAS</span>
+            </div>
+          </div>
+
+          <!-- 02. Brand Strategy -->
+          <div class="bg-brand-cardDark border border-brand-borderDark p-8 rounded-2xl flex flex-col justify-between hover:border-brand-accent/70 transition-all group">
+            <div>
+              <div class="flex justify-between items-center mb-6">
+                <span class="font-mono text-xs text-brand-accent font-bold tracking-widest">02</span>
+                <i class="fa-solid fa-compass-drafting text-neutral-500 group-hover:text-brand-accent transition-colors"></i>
+              </div>
+              <h3 class="font-serif text-xl font-bold text-white mb-3">
+                Brand Strategy &amp; Development
+              </h3>
+              <p class="text-neutral-400 text-sm leading-relaxed">
+                Brand positioning, brand storytelling, communication strategy, consumer insights, campaign concepts and brand growth for long-term equity.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-brand-borderDark text-xs font-mono text-neutral-400 flex flex-wrap gap-2">
+              <span class="bg-brand-dark px-2 py-0.5 rounded border border-brand-borderDark">Storytelling</span>
+              <span class="bg-brand-dark px-2 py-0.5 rounded border border-brand-borderDark">Positioning</span>
+              <span class="bg-brand-dark px-2 py-0.5 rounded border border-brand-borderDark">Consumer Insights</span>
+            </div>
+          </div>
+
+          <!-- 03. International Marketing -->
+          <div class="bg-brand-cardDark border border-brand-borderDark p-8 rounded-2xl flex flex-col justify-between hover:border-brand-accent/70 transition-all group">
+            <div>
+              <div class="flex justify-between items-center mb-6">
+                <span class="font-mono text-xs text-brand-accent font-bold tracking-widest">03</span>
+                <i class="fa-solid fa-earth-asia text-neutral-500 group-hover:text-brand-accent transition-colors"></i>
+              </div>
+              <h3 class="font-serif text-xl font-bold text-white mb-3">
+                International &amp; Regional Marketing
+              </h3>
+              <p class="text-neutral-400 text-sm leading-relaxed">
+                Cross-market marketing strategy, geo-targeting, audience segmentation, regional campaign execution and international business development across ASEAN.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-brand-borderDark text-xs font-mono text-neutral-400 flex flex-wrap gap-2">
+              <span class="bg-brand-dark px-2 py-0.5 rounded border border-brand-borderDark">Geo-Targeting</span>
+              <span class="bg-brand-dark px-2 py-0.5 rounded border border-brand-borderDark">ASEAN Expansion</span>
+              <span class="bg-brand-dark px-2 py-0.5 rounded border border-brand-borderDark">Cross-Border</span>
+            </div>
+          </div>
+
+          <!-- 04. Media Strategy -->
+          <div class="bg-brand-cardDark border border-brand-borderDark p-8 rounded-2xl flex flex-col justify-between hover:border-brand-accent/70 transition-all group">
+            <div>
+              <div class="flex justify-between items-center mb-6">
+                <span class="font-mono text-xs text-brand-accent font-bold tracking-widest">04</span>
+                <i class="fa-solid fa-layer-group text-neutral-500 group-hover:text-brand-accent transition-colors"></i>
+              </div>
+              <h3 class="font-serif text-xl font-bold text-white mb-3">
+                Media Strategy &amp; Planning
+              </h3>
+              <p class="text-neutral-400 text-sm leading-relaxed">
+                Integrated media planning, digital and traditional media, media investment, platform selection, campaign optimization and thorough reporting.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-brand-borderDark text-xs font-mono text-neutral-400 flex flex-wrap gap-2">
+              <span class="bg-brand-dark px-2 py-0.5 rounded border border-brand-borderDark">Media Buying</span>
+              <span class="bg-brand-dark px-2 py-0.5 rounded border border-brand-borderDark text-brand-accent">Budgets $1M+</span>
+              <span class="bg-brand-dark px-2 py-0.5 rounded border border-brand-borderDark">Attribution</span>
+            </div>
+          </div>
+
+          <!-- 05. eCommerce & Digital Transformation -->
+          <div class="bg-brand-cardDark border border-brand-borderDark p-8 rounded-2xl flex flex-col justify-between hover:border-brand-accent/70 transition-all group">
+            <div>
+              <div class="flex justify-between items-center mb-6">
+                <span class="font-mono text-xs text-brand-accent font-bold tracking-widest">05</span>
+                <i class="fa-solid fa-cart-shopping text-neutral-500 group-hover:text-brand-accent transition-colors"></i>
+              </div>
+              <h3 class="font-serif text-xl font-bold text-white mb-3">
+                eCommerce &amp; Transformation
+              </h3>
+              <p class="text-neutral-400 text-sm leading-relaxed">
+                Social commerce, eCommerce strategy, marketplace advertising, customer journey development, CRM systems and automated retention pipelines.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-brand-borderDark text-xs font-mono text-neutral-400 flex flex-wrap gap-2">
+              <span class="bg-brand-dark px-2 py-0.5 rounded border border-brand-borderDark">CPAS</span>
+              <span class="bg-brand-dark px-2 py-0.5 rounded border border-brand-borderDark">CRM Journeys</span>
+              <span class="bg-brand-dark px-2 py-0.5 rounded border border-brand-borderDark">Social Commerce</span>
+            </div>
+          </div>
+
+          <!-- 06. Partnerships & Business Development -->
+          <div class="bg-brand-cardDark border border-brand-borderDark p-8 rounded-2xl flex flex-col justify-between hover:border-brand-accent/70 transition-all group">
+            <div>
+              <div class="flex justify-between items-center mb-6">
+                <span class="font-mono text-xs text-brand-accent font-bold tracking-widest">06</span>
+                <i class="fa-solid fa-handshake-angle text-neutral-500 group-hover:text-brand-accent transition-colors"></i>
+              </div>
+              <h3 class="font-serif text-xl font-bold text-white mb-3">
+                Partnerships &amp; Business Dev
+              </h3>
+              <p class="text-neutral-400 text-sm leading-relaxed">
+                Strategic partnerships, business negotiations, sponsorship management, executive stakeholder relationships and commercial opportunity realization.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-brand-borderDark text-xs font-mono text-neutral-400 flex flex-wrap gap-2">
+              <span class="bg-brand-dark px-2 py-0.5 rounded border border-brand-borderDark">OTAs Alliances</span>
+              <span class="bg-brand-dark px-2 py-0.5 rounded border border-brand-borderDark">Sponsorships</span>
+              <span class="bg-brand-dark px-2 py-0.5 rounded border border-brand-borderDark">Deal Structure</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Platforms & MarTech Arsenal -->
+        <div class="mt-16 bg-brand-cardDark border border-brand-borderDark rounded-2xl p-8">
+          <div class="text-xs font-mono uppercase tracking-widest text-neutral-400 mb-6 flex items-center justify-between">
+            <span>MarTech Platforms &amp; AI Tools Arsenal</span>
+            <span class="text-brand-accent font-bold">17 Core Systems</span>
+          </div>
+
+          <div class="flex flex-wrap gap-2.5">
+            <span class="px-4 py-2 bg-brand-dark border border-brand-borderDark text-neutral-200 rounded-lg text-xs font-mono font-medium">Meta Ads</span>
+            <span class="px-4 py-2 bg-brand-dark border border-brand-borderDark text-neutral-200 rounded-lg text-xs font-mono font-medium">TikTok Ads</span>
+            <span class="px-4 py-2 bg-brand-dark border border-brand-borderDark text-neutral-200 rounded-lg text-xs font-mono font-medium">Google Ads</span>
+            <span class="px-4 py-2 bg-brand-dark border border-brand-borderDark text-neutral-200 rounded-lg text-xs font-mono font-medium">DV360</span>
+            <span class="px-4 py-2 bg-brand-dark border border-brand-borderDark text-neutral-200 rounded-lg text-xs font-mono font-medium">LinkedIn Ads</span>
+            <span class="px-4 py-2 bg-brand-dark border border-brand-borderDark text-neutral-200 rounded-lg text-xs font-mono font-medium">Google Analytics 4</span>
+            <span class="px-4 py-2 bg-brand-dark border border-brand-borderDark text-neutral-200 rounded-lg text-xs font-mono font-medium">Shopee CPAS</span>
+            <span class="px-4 py-2 bg-brand-dark border border-brand-borderDark text-neutral-200 rounded-lg text-xs font-mono font-medium">Lazada CPAS</span>
+            <span class="px-4 py-2 bg-brand-dark border border-brand-borderDark text-neutral-200 rounded-lg text-xs font-mono font-medium">HubSpot</span>
+            <span class="px-4 py-2 bg-brand-dark border border-brand-borderDark text-neutral-200 rounded-lg text-xs font-mono font-medium">Mailchimp</span>
+            <span class="px-4 py-2 bg-brand-dark border border-brand-borderDark text-neutral-200 rounded-lg text-xs font-mono font-medium">WordPress</span>
+            <span class="px-4 py-2 bg-brand-dark border border-brand-borderDark text-neutral-200 rounded-lg text-xs font-mono font-medium">Webflow</span>
+            <span class="px-4 py-2 bg-brand-dark border border-brand-borderDark text-neutral-200 rounded-lg text-xs font-mono font-medium">Hootsuite</span>
+            <span class="px-4 py-2 bg-brand-dark border border-brand-borderDark text-neutral-200 rounded-lg text-xs font-mono font-medium">Canva</span>
+            <span class="px-4 py-2 bg-brand-accent/10 border border-brand-accent/40 text-brand-accent rounded-lg text-xs font-mono font-bold">ChatGPT</span>
+            <span class="px-4 py-2 bg-brand-accent/10 border border-brand-accent/40 text-brand-accent rounded-lg text-xs font-mono font-bold">Midjourney</span>
+            <span class="px-4 py-2 bg-brand-accent/10 border border-brand-accent/40 text-brand-accent rounded-lg text-xs font-mono font-bold">Perplexity</span>
+            <span class="px-4 py-2 bg-brand-accent/10 border border-brand-accent/40 text-brand-accent rounded-lg text-xs font-mono font-bold">Gemini</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 04 — PROFESSIONAL EXPERIENCE (CHRONOLOGICAL NARRATIVE & CASE STUDIES) -->
+    <section id="experience" class="py-24 border-b border-brand-borderDark">
+      <div class="max-w-7xl mx-auto px-6">
+        
+        <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-brand-accent mb-3">
+          <span>04</span>
+          <span class="w-8 h-px bg-brand-accent"></span>
+          <span>Professional Experience</span>
+        </div>
+
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-4">
+          A Journey Across Agencies, Brands &amp; International Markets
+        </h2>
+        <p class="text-neutral-400 text-lg mb-16 max-w-2xl">
+          Complete verified career record showcasing leadership, cross-border execution, and measurable revenue generation.
+        </p>
+
+        <!-- Timeline Items -->
+        <div class="space-y-12">
+          
+          <!-- 1. Coca Media Myanmar (Present) -->
+          <div class="relative bg-brand-cardDark border border-brand-borderDark rounded-2xl p-8 md:p-10 transition-all hover:border-brand-accent/50">
+            <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
+              <div>
+                <span class="inline-block px-3 py-1 bg-brand-accent/10 border border-brand-accent/30 text-brand-accent rounded text-xs font-mono uppercase tracking-widest font-semibold mb-2">
+                  Current Leadership
+                </span>
+                <h3 class="font-serif text-2xl md:text-3xl font-bold text-white">
+                  COCA MEDIA MYANMAR
+                </h3>
+                <p class="text-brand-accent font-mono font-semibold text-sm mt-1">
+                  Account Manager
+                </p>
+              </div>
+              <div class="text-left md:text-right font-mono text-xs text-neutral-400">
+                <p class="font-semibold text-white">January 2026 – Present</p>
+                <p>Yangon, Myanmar</p>
+              </div>
+            </div>
+
+            <p class="text-neutral-300 text-base md:text-lg leading-relaxed max-w-4xl">
+              Leading integrated marketing and media initiatives across digital, traditional media, partnerships and sponsorships. Managing client relationships, business negotiations, campaign development, supplier coordination and team development.
+            </p>
+          </div>
+
+          <!-- 2. Columbia Pictures Aquaverse (Signature Case Study) -->
+          <div class="relative bg-brand-cardDark border-2 border-brand-accent rounded-2xl p-8 md:p-10 shadow-[0_0_30px_rgba(204,255,0,0.08)]">
+            <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-6">
+              <div>
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="inline-block px-3 py-1 bg-brand-accent text-black rounded text-xs font-mono uppercase tracking-widest font-bold">
+                    Featured Regional Case Study
+                  </span>
+                  <span class="text-xs font-mono text-neutral-400">Sony Pictures Entertainment IP</span>
+                </div>
+                <h3 class="font-serif text-2xl md:text-3xl font-bold text-white">
+                  COLUMBIA PICTURES AQUAVERSE
+                </h3>
+                <p class="text-brand-accent font-mono font-semibold text-sm mt-1">
+                  International Channel Specialist (Marketing &amp; Sales)
+                </p>
+              </div>
+              <div class="text-left md:text-right font-mono text-xs text-neutral-400">
+                <p class="font-semibold text-white">August 2024 – November 2025</p>
+                <p>Chonburi, Thailand</p>
+              </div>
+            </div>
+
+            <p class="text-neutral-300 text-base md:text-lg leading-relaxed max-w-4xl mb-8">
+              Led international digital marketing and channel strategies across Meta, TikTok, Google and YouTube. Delivered 4× quality traffic and 100× ROAS through performance and lead-generation campaigns, while achieving 20× cost savings. Managed eCommerce campaigns, CRM journeys, SEO and strategic partnerships with major OTAs across multiple international markets.
+            </p>
+
+            <!-- Spotlight Metrics Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-brand-borderDark">
+              <div class="p-5 rounded-xl bg-brand-dark border border-brand-borderDark">
+                <span class="font-mono text-3xl font-black text-brand-accent">4×</span>
+                <p class="text-xs font-mono uppercase tracking-wider text-neutral-400 mt-1">Quality Traffic Growth</p>
+                <p class="text-xs text-neutral-400 mt-2">Precision overseas targeting across Meta and TikTok.</p>
+              </div>
+              <div class="p-5 rounded-xl bg-brand-dark border border-brand-accent/50">
+                <span class="font-mono text-3xl font-black text-brand-accent">100×</span>
+                <p class="text-xs font-mono uppercase tracking-wider text-neutral-400 mt-1">Verified Peak ROAS</p>
+                <p class="text-xs text-neutral-400 mt-2">Delivered via high-intent international lead funnels.</p>
+              </div>
+              <div class="p-5 rounded-xl bg-brand-dark border border-brand-borderDark">
+                <span class="font-mono text-3xl font-black text-white">20×</span>
+                <p class="text-xs font-mono uppercase tracking-wider text-neutral-400 mt-1">Cost Savings Efficiency</p>
+                <p class="text-xs text-neutral-400 mt-2">Restructured algorithmic bidding and creative iterations.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Royisal Company Limited -->
+          <div class="relative bg-brand-cardDark border border-brand-borderDark rounded-2xl p-8 md:p-10 transition-all hover:border-brand-accent/50">
+            <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
+              <div>
+                <h3 class="font-serif text-2xl md:text-3xl font-bold text-white">
+                  ROYISAL COMPANY LIMITED
+                </h3>
+                <p class="text-brand-accent font-mono font-semibold text-sm mt-1">
+                  B2C Marketing Manager
+                </p>
+              </div>
+              <div class="text-left md:text-right font-mono text-xs text-neutral-400">
+                <p class="font-semibold text-white">January 2024 – July 2024</p>
+                <p>Samut Prakan, Thailand</p>
+              </div>
+            </div>
+
+            <p class="text-neutral-300 text-base md:text-lg leading-relaxed max-w-4xl">
+              Developed B2C marketing strategies, strengthened brand positioning and led eCommerce, social media and digital initiatives to improve customer engagement and sales performance.
+            </p>
+          </div>
+
+          <!-- 4. Coca Media (Digital Marketing Manager) -->
+          <div class="relative bg-brand-cardDark border border-brand-borderDark rounded-2xl p-8 md:p-10 transition-all hover:border-brand-accent/50">
+            <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
+              <div>
+                <h3 class="font-serif text-2xl md:text-3xl font-bold text-white">
+                  COCA MEDIA
+                </h3>
+                <p class="text-brand-accent font-mono font-semibold text-sm mt-1">
+                  Digital Marketing Manager
+                </p>
+              </div>
+              <div class="text-left md:text-right font-mono text-xs text-neutral-400">
+                <p class="font-semibold text-white">March 2020 – December 2023</p>
+                <p>Yangon, Myanmar</p>
+              </div>
+            </div>
+
+            <p class="text-neutral-300 text-base md:text-lg leading-relaxed max-w-4xl mb-6">
+              Led digital media strategy and campaign performance for major brands. Managed annual advertising budgets exceeding USD 1 million, secured high-profile clients including Samsung Electronics and Heineken, and delivered 15× ROAS for Samsung's Z-Series launch. Pioneered an ethnicity-targeting campaign that became a national case study and contributed to award-winning FMCG brand work.
+            </p>
+
+            <div class="flex flex-wrap gap-3">
+              <span class="px-3 py-1 rounded bg-brand-dark border border-brand-borderDark text-xs font-mono text-neutral-300">
+                USD 1M+ Annual Budget
+              </span>
+              <span class="px-3 py-1 rounded bg-brand-dark border border-brand-accent/40 text-xs font-mono text-brand-accent font-semibold">
+                Samsung Z-Series (15× ROAS)
+              </span>
+              <span class="px-3 py-1 rounded bg-brand-dark border border-brand-borderDark text-xs font-mono text-neutral-300">
+                Heineken Client Lead
+              </span>
+              <span class="px-3 py-1 rounded bg-brand-dark border border-brand-borderDark text-xs font-mono text-neutral-300">
+                National Ethnicity-Targeting Case Study
+              </span>
+            </div>
+          </div>
+
+          <!-- 5. Irie Digital Marketing Agency -->
+          <div class="relative bg-brand-cardDark border border-brand-borderDark rounded-2xl p-8 md:p-10 transition-all hover:border-brand-accent/50">
+            <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
+              <div>
+                <h3 class="font-serif text-2xl md:text-3xl font-bold text-white">
+                  IRIE DIGITAL MARKETING AGENCY
+                </h3>
+                <p class="text-brand-accent font-mono font-semibold text-sm mt-1">
+                  Digital Marketing &amp; Creative Content Manager
+                </p>
+              </div>
+              <div class="text-left md:text-right font-mono text-xs text-neutral-400">
+                <p class="font-semibold text-white">January 2018 – February 2020</p>
+                <p>Yangon, Myanmar</p>
+              </div>
+            </div>
+
+            <p class="text-neutral-300 text-base md:text-lg leading-relaxed max-w-4xl mb-6">
+              Led brand communication, creative content and digital campaign strategies across multiple industries. Played a key role in the launch of KBZPay, developing its initial brand communication and positioning. Won eight digital pitch competitions through strategic brand and content development.
+            </p>
+
+            <div class="flex flex-wrap gap-3">
+              <span class="px-3 py-1 rounded bg-brand-dark border border-brand-borderDark text-xs font-mono text-neutral-300">
+                KBZPay National Launch
+              </span>
+              <span class="px-3 py-1 rounded bg-brand-dark border border-brand-accent/40 text-xs font-mono text-brand-accent font-semibold">
+                8 Pitch Competition Wins
+              </span>
+            </div>
+          </div>
+
+          <!-- 6. Havas Riverorchid Marketing Agency -->
+          <div class="relative bg-brand-cardDark border border-brand-borderDark rounded-2xl p-8 md:p-10 transition-all hover:border-brand-accent/50">
+            <div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
+              <div>
+                <h3 class="font-serif text-2xl md:text-3xl font-bold text-white">
+                  HAVAS RIVERORCHID MARKETING AGENCY
+                </h3>
+                <p class="text-brand-accent font-mono font-semibold text-sm mt-1">
+                  Digital Campaign Executive
+                </p>
+              </div>
+              <div class="text-left md:text-right font-mono text-xs text-neutral-400">
+                <p class="font-semibold text-white">December 2016 – January 2018</p>
+                <p>Yangon, Myanmar</p>
+              </div>
+            </div>
+
+            <p class="text-neutral-300 text-base md:text-lg leading-relaxed max-w-4xl">
+              Built the foundation of my digital marketing career through content strategy, social media management, consumer behaviour analysis, media buying and campaign reporting for local and international brands.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 05 — TEACHING & KNOWLEDGE SHARING (UNCOMPROMISED PHILOSOPHY) -->
+    <section id="teaching" class="py-24 border-b border-brand-borderDark bg-brand-dark">
+      <div class="max-w-7xl mx-auto px-6">
+        
+        <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-brand-accent mb-3">
+          <span>05</span>
+          <span class="w-8 h-px bg-brand-accent"></span>
+          <span>Teaching &amp; Knowledge Sharing</span>
+        </div>
+
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-4">
+          Bridging the Gap Between Marketing Theory and Real-World Practice
+        </h2>
+
+        <!-- Teaching Philosophy Banner -->
+        <div class="my-10 p-8 rounded-2xl bg-brand-cardDark border border-brand-accent/40 shadow-[0_0_20px_rgba(204,255,0,0.05)]">
+          <div class="text-xs font-mono uppercase tracking-widest text-brand-accent font-bold mb-2">My Teaching Philosophy</div>
+          <p class="font-serif italic text-2xl md:text-3xl font-semibold text-white leading-snug">
+            "Learn the fundamentals. Understand the market. Think strategically. Execute practically."
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          
+          <!-- Written Rationale -->
+          <div class="lg:col-span-7 space-y-6 text-neutral-300 text-lg leading-relaxed">
+            <p>
+              Marketing is an ever-evolving discipline. I believe the best way to understand it is not simply by learning frameworks, but by seeing how those frameworks work in real business situations.
+            </p>
+            <p>
+              With more than nine years of practical industry experience and a postgraduate background in branding and marketing, I am interested in sharing industry knowledge, practical marketing perspectives and real-world case studies with aspiring marketers and business professionals.
+            </p>
+            <p>
+              I aim to make marketing concepts accessible, relevant and applicable by connecting academic knowledge with practical examples, industry observations and real campaign experiences.
+            </p>
+
+            <div class="pt-4">
+              <a href="#connect" class="inline-flex items-center gap-2 text-brand-accent font-mono text-xs uppercase tracking-wider font-bold hover:underline">
+                <span>Inquire for guest lectures, workshops or corporate training</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- 8 Areas of Teaching Interest -->
+          <div class="lg:col-span-5">
+            <div class="bg-brand-cardDark border border-brand-borderDark rounded-2xl p-7">
+              <h3 class="font-mono text-xs uppercase tracking-widest text-neutral-400 mb-6 flex justify-between items-center">
+                <span>Areas of Teaching Interest</span>
+                <i class="fa-solid fa-chalkboard-user text-brand-accent"></i>
+              </h3>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div class="p-3 rounded-lg bg-brand-dark border border-brand-borderDark text-xs font-medium text-neutral-200 flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
+                  Marketing Fundamentals
+                </div>
+                <div class="p-3 rounded-lg bg-brand-dark border border-brand-borderDark text-xs font-medium text-neutral-200 flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
+                  Digital Marketing Strategy
+                </div>
+                <div class="p-3 rounded-lg bg-brand-dark border border-brand-borderDark text-xs font-medium text-neutral-200 flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
+                  Performance &amp; Media Planning
+                </div>
+                <div class="p-3 rounded-lg bg-brand-dark border border-brand-borderDark text-xs font-medium text-neutral-200 flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
+                  Branding &amp; Communication
+                </div>
+                <div class="p-3 rounded-lg bg-brand-dark border border-brand-borderDark text-xs font-medium text-neutral-200 flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
+                  Consumer Behaviour
+                </div>
+                <div class="p-3 rounded-lg bg-brand-dark border border-brand-borderDark text-xs font-medium text-neutral-200 flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
+                  Social &amp; Content Strategy
+                </div>
+                <div class="p-3 rounded-lg bg-brand-dark border border-brand-borderDark text-xs font-medium text-neutral-200 flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
+                  Marketing Analytics &amp; GA4
+                </div>
+                <div class="p-3 rounded-lg bg-brand-dark border border-brand-borderDark text-xs font-medium text-neutral-200 flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-brand-accent"></span>
+                  International Marketing
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 06 — LET'S CONNECT & DIRECT CONTACT CHANNELS -->
+    <section id="connect" class="py-24 border-b border-brand-borderDark">
+      <div class="max-w-7xl mx-auto px-6">
+        
+        <div class="flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-brand-accent mb-3">
+          <span>06</span>
+          <span class="w-8 h-px bg-brand-accent"></span>
+          <span>Let's Connect</span>
+        </div>
+
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-4">
+          Good Ideas Start With Good Conversations.
+        </h2>
+        
+        <p class="text-neutral-300 text-lg md:text-xl max-w-3xl leading-relaxed mb-12">
+          Whether you're looking to exchange ideas, explore a business partnership, discuss marketing opportunities, collaborate on educational initiatives or simply connect professionally, I'd be happy to hear from you.
+        </p>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          
+          <!-- Direct Contact Card with Copy Triggers -->
+          <div class="lg:col-span-5 bg-brand-cardDark border border-brand-borderDark rounded-2xl p-8 flex flex-col justify-between">
+            <div>
+              <div class="font-serif text-2xl font-bold text-white">NGWAR TAR (NT)</div>
+              <p class="text-xs font-mono uppercase tracking-widest text-brand-accent mt-1">Digital Marketing &amp; Branding Strategist</p>
+              <p class="text-sm text-neutral-400 mt-1">Yangon, Myanmar · Working across regional markets</p>
+
+              <div class="mt-8 space-y-4">
+                
+                <!-- Email -->
+                <div class="flex items-center justify-between p-3.5 rounded-xl bg-brand-dark border border-brand-borderDark">
+                  <div class="flex items-center gap-3 overflow-hidden">
+                    <div class="w-8 h-8 rounded-full bg-brand-accent/10 flex items-center justify-center text-brand-accent text-sm shrink-0">
+                      <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <div class="truncate">
+                      <div class="text-[10px] font-mono uppercase text-neutral-400">Email</div>
+                      <a href="mailto:ngwarthar@gmail.com" class="text-xs sm:text-sm font-semibold text-white hover:underline truncate">ngwarthar@gmail.com</a>
+                    </div>
+                  </div>
+                  <button onclick="copyToClipboard('ngwarthar@gmail.com', 'Email copied!')" class="text-xs font-mono text-brand-accent hover:underline shrink-0 ml-2" aria-label="Copy email">
+                    <i class="fa-regular fa-copy"></i>
+                  </button>
+                </div>
+
+                <!-- Phone -->
+                <div class="flex items-center justify-between p-3.5 rounded-xl bg-brand-dark border border-brand-borderDark">
+                  <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-brand-accent/10 flex items-center justify-center text-brand-accent text-sm shrink-0">
+                      <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <div>
+                      <div class="text-[10px] font-mono uppercase text-neutral-400">Phone</div>
+                      <a href="tel:+959784489524" class="text-xs sm:text-sm font-semibold text-white hover:underline">+95 9784489524</a>
+                    </div>
+                  </div>
+                  <button onclick="copyToClipboard('+959784489524', 'Phone number copied!')" class="text-xs font-mono text-brand-accent hover:underline shrink-0 ml-2" aria-label="Copy phone number">
+                    <i class="fa-regular fa-copy"></i>
+                  </button>
+                </div>
+
+                <!-- LINE -->
+                <div class="flex items-center justify-between p-3.5 rounded-xl bg-brand-dark border border-brand-borderDark">
+                  <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-brand-accent/10 flex items-center justify-center text-brand-accent text-sm shrink-0">
+                      <i class="fa-brands fa-line"></i>
+                    </div>
+                    <div>
+                      <div class="text-[10px] font-mono uppercase text-neutral-400">LINE ID</div>
+                      <span class="text-xs sm:text-sm font-semibold text-white">@ngwarthar</span>
+                    </div>
+                  </div>
+                  <button onclick="copyToClipboard('@ngwarthar', 'LINE ID copied!')" class="text-xs font-mono text-brand-accent hover:underline shrink-0 ml-2" aria-label="Copy LINE ID">
+                    <i class="fa-regular fa-copy"></i>
+                  </button>
+                </div>
+
+                <!-- LinkedIn -->
+                <div class="flex items-center justify-between p-3.5 rounded-xl bg-brand-dark border border-brand-borderDark">
+                  <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-brand-accent/10 flex items-center justify-center text-brand-accent text-sm shrink-0">
+                      <i class="fa-brands fa-linkedin-in"></i>
+                    </div>
+                    <div>
+                      <div class="text-[10px] font-mono uppercase text-neutral-400">LinkedIn</div>
+                      <span class="text-xs sm:text-sm font-semibold text-white">linkedin.com/in/ngwar-tar</span>
+                    </div>
+                  </div>
+                  <a href="https://www.linkedin.com/in/ngwar-tar/" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-brand-accent hover:underline shrink-0 ml-2" aria-label="Open LinkedIn Profile">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-brand-borderDark text-xs font-serif italic text-neutral-400">
+              "Let's connect, collaborate and create something meaningful."
+            </div>
+          </div>
+
+          <!-- Direct Message Form -->
+          <div class="lg:col-span-7 bg-brand-cardDark border border-brand-borderDark rounded-2xl p-8">
+            <h3 class="font-serif text-2xl font-bold text-white mb-2">
+              Send an Inquiry
+            </h3>
+            <p class="text-sm text-neutral-400 mb-6">
+              Have a campaign, speaking engagement, or partnership brief? Leave a message below.
+            </p>
+
+            <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-mono uppercase text-neutral-400 mb-1">Your Name *</label>
+                  <input type="text" required placeholder="e.g. Alex Chen" class="w-full bg-brand-dark border border-brand-borderDark rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-brand-accent">
+                </div>
+                <div>
+                  <label class="block text-xs font-mono uppercase text-neutral-400 mb-1">Email Address *</label>
+                  <input type="email" required placeholder="alex@company.com" class="w-full bg-brand-dark border border-brand-borderDark rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-brand-accent">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-mono uppercase text-neutral-400 mb-1">Inquiry Purpose</label>
+                <select class="w-full bg-brand-dark border border-brand-borderDark rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-brand-accent">
+                  <option value="consulting">Brand &amp; Marketing Consultation</option>
+                  <option value="speaking">Guest Lecture or Corporate Training</option>
+                  <option value="partnership">Business Partnership / Joint Venture</option>
+                  <option value="general">General Professional Networking</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs font-mono uppercase text-neutral-400 mb-1">Message *</label>
+                <textarea rows="4" required placeholder="Share your project goals, timelines, or brief details..." class="w-full bg-brand-dark border border-brand-borderDark rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-brand-accent"></textarea>
+              </div>
+
+              <button type="submit" class="w-full py-3.5 bg-brand-accent hover:bg-brand-accentHover text-black rounded-lg font-mono text-xs uppercase tracking-widest font-bold transition-all">
+                Send Direct Message
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- EDITORIAL FOOTER -->
+  <footer class="py-12 bg-brand-dark border-t border-brand-borderDark transition-colors">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6 text-xs font-mono text-neutral-400">
+      <div>
+        © 2026 NGWAR TAR (NT). All rights reserved.
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="#hero" class="hover:text-brand-accent">Back to Top ↑</a>
+        <a href="mailto:ngwarthar@gmail.com" class="hover:text-brand-accent">ngwarthar@gmail.com</a>
+        <a href="https://www.linkedin.com/in/ngwar-tar/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-accent">LinkedIn Profile</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- INTERACTIVE SCRIPTS -->
+  <script>
+    // Reading Scroll Progress Indicator
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('scroll-progress').style.width = scrolled + '%';
+    });
+
+    // Mobile menu toggle
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu on anchor click
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Copy to clipboard helper without alert()
+    function copyToClipboard(text, message) {
+      const tempInput = document.createElement('input');
+      tempInput.value = text;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      try {
+        document.execCommand('copy');
+        showToast(message || 'Copied to clipboard');
+      } catch (err) {
+        showToast('Press Ctrl+C to copy');
+      }
+      document.body.removeChild(tempInput);
+    }
+
+    // Custom Toast notification
+    function showToast(msg) {
+      const toast = document.getElementById('toast-notification');
+      const text = document.getElementById('toast-text');
+      text.innerText = msg;
+      toast.classList.remove('opacity-0', 'translate-y-4');
+      toast.classList.add('opacity-100', 'translate-y-0');
+
+      setTimeout(() => {
+        toast.classList.remove('opacity-100', 'translate-y-0');
+        toast.classList.add('opacity-0', 'translate-y-4');
+      }, 2500);
+    }
+
+    // Form submission feedback without alert()
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      showToast('Thank you! Your message has been prepared for transmission.');
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
